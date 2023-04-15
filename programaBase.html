@@ -1,0 +1,28 @@
+<h1>Calculadora</h1>
+
+<script>
+    function saltarLinea(){
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+function imprimir(frase) {
+    document.write(frase);
+    saltarLinea();
+}
+
+function calcularImc(peso, altura,nombre) {
+    imc= peso / (altura * altura);
+    imprimir("El IMC de " + nombre +" es: "  + Math.round(imc) )
+    //el math round es para que el numero sea cerrado y no con decimales
+}
+
+calcularImc(71,1.72, "cristhian");
+calcularImc(60,1.55, "andrea");
+//si arriba en la funcion hay 3 parametros abajo donde la llamo
+//tambien le debo enviar 3 parametros aunque sean distintos nombres
+//el codigo los lee por orden de derecha a izquierda y los asigna
+
+
+</script>
