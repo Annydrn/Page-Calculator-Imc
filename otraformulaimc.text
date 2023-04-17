@@ -1,0 +1,18 @@
+// Obtener elementos del HTML
+const pesoInput = document.getElementById('peso');
+const alturaInput = document.getElementById('altura');
+const calcularBtn = document.getElementById('calcular');
+const resultadoDiv = document.getElementById('resultado');
+
+// Agregar evento al botón de calcular
+calcularBtn.addEventListener('click', function() {
+  // Obtener el peso y la altura ingresados por el usuario
+  const peso = parseFloat(pesoInput.value);
+  const altura = parseFloat(alturaInput.value);
+
+  // Calcular el IMC
+  const imc = peso / (altura * altura);
+
+  // Mostrar el resultado en el HTML
+  resultadoDiv.innerHTML = 'Tu IMC es: ' + imc.toFixed(2);
+});

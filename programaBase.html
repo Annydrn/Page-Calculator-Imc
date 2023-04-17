@@ -1,28 +1,55 @@
 <h1>Calculadora</h1>
 
 <script>
-    function saltarLinea(){
-        document.write("<br>");
-        document.write("<br>");
-        document.write("<br>");
-    }
+  function saltarLinea() {
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+  }
 
-function imprimir(frase) {
+  function imprimir(frase) {
     document.write(frase);
     saltarLinea();
-}
+  }
 
-function calcularImc(peso, altura,nombre) {
-    imc= peso / (altura * altura);
-    imprimir("El IMC de " + nombre +" es: "  + Math.round(imc) )
-    //el math round es para que el numero sea cerrado y no con decimales
-}
+  function calcularImc(peso, altura) {
+    return peso / (altura * altura);
+  }
+  // Tengo que declarar nuevamente la variable pero ahora con la informacion que ya me dio el usuario
+  nombre = prompt("¿Como te llamas?");
+  pesoInformado = prompt(nombre + ", ¿Cuanto pesas?");
+  alturaInformada = prompt(nombre + "¿Cuanto mides");
 
-calcularImc(71,1.72, "cristhian");
-calcularImc(60,1.55, "andrea");
-//si arriba en la funcion hay 3 parametros abajo donde la llamo
-//tambien le debo enviar 3 parametros aunque sean distintos nombres
-//el codigo los lee por orden de derecha a izquierda y los asigna
+  imcCalculado = calcularImc(pesoInformado, alturaInformada); // aca le estoy enviando la informacion actualizada mediante
+  //los parametros para que la funcion pueda activarse
 
+  imprimir(nombre + ", su imc calculado es: " + imcCalculado);
+  // aca ya damos el resultado final
 
+  if (imcCalculado < 18.5) {
+    imprimir(
+      "Tienes un peso bajo comparado al promedio, consulta con tu medico de cabezera"
+    );
+  }
+  if (imcCalculado >= 18.5) {
+    if (imcCalculado < 25) {
+      imprimir("¡Felicidades! Tienes un peso saludable");
+    }
+  }
+
+  if (imcCalculado >= 25.1) {
+    if (imcCalculado < 30) {
+      imprimir(
+        "Tienes sobrepeso comparado al promedio, consulta con tu medico de cabezera"
+      );
+    }
+  }
+
+  if (imcCalculado >= 30) {
+    imprimir("!Cuidado¡ tienes obesidad, consulta con tu medico de cabezera");
+  }
+
+  //si arriba en la funcion hay 3 parametros abajo donde la llamo
+  //tambien le debo enviar 3 parametros aunque sean distintos nombres
+  //el codigo los lee por orden de derecha a izquierda y los asigna
 </script>
